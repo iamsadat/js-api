@@ -4,9 +4,13 @@ const app = express();
 const stocks = require("./data.js");
 
 app.get("/", (req, res) => {
-  console.log(stocks.stocks);
+  res.send("Home Page");
+});
+
+app.get("/stocks", (req, res) => {
   res.send(stocks.stocks);
 });
 
-const server = http.createServer(app);
-server.listen(3000);
+app.listen(3000, () => {
+  console.log("Server is listening on port 3000. Ready to accept requests!");
+});
