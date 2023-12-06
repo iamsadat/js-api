@@ -28,7 +28,11 @@ const getStocks = async () => {
       };
     });
 
-    return stocks;
+    const data = {
+      stocks: stocks,
+    };
+
+    return data;
   } catch (error) {
     console.error(error);
     throw error;
