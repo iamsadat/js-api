@@ -15,9 +15,24 @@ const options = {
   },
 };
 
-try {
-  const response = await axios.request(options);
-  console.log(response.data);
-} catch (error) {
-  console.error(error);
-}
+const getStocks = async () => {
+  try {
+    const response = await axios.request(options);
+    const allStocks = response.data.data.trends;
+    const stocks = allStocks.map((stock) => {
+      return {
+        symbol: stock.symbol,
+        company_name: stock.name,
+        price: stock.price,
+        change: stock.change,
+      };
+    });
+
+    return stocks;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+module.exports = getStocks;

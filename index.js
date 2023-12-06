@@ -1,17 +1,18 @@
-const http = require("http");
 const express = require("express");
 const app = express();
-const stocks = require("./data.js");
+const getStocks = require("./stocks.js");
 
 app.get("/", (req, res) => {
   res.send("Home Page");
 });
 
-app.get("/stocks", (req, res) => {
-  console.log(typeof stocks);
-  const stocksJson = JSON.stringify(stocks);
-  console.log(typeof stocksJson);
-  res.send(stocksJson);
+app.get("/stocks", async (req, res) => {
+  try {
+    const stocksData = await getStocks();
+    res.json(stocksData);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching stocks data" });
+  }
 });
 
 app.listen(3000, () => {
