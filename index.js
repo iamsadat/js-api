@@ -8,7 +8,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/stocks", (req, res) => {
-  res.send(stocks);
+  console.log(typeof stocks);
+  const stocksJson = JSON.stringify(stocks);
+  console.log(typeof stocksJson);
+  res.send(stocksJson);
 });
 
 app.listen(3000, () => {

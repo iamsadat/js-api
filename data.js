@@ -18,7 +18,7 @@ const stocks = {
     {
       symbol: "AMZN",
       company_name: "Amazon.com Inc.",
-      price: 3300.0,
+      price: 3300.05,
     },
     {
       symbol: "TSLA",
