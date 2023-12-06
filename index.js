@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/stocks", (req, res) => {
-  res.send(stocks.stocks);
+  res.send(stocks);
 });
 
 app.listen(3000, () => {
