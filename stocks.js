@@ -23,8 +23,8 @@ const getStocks = async () => {
       return {
         symbol: stock.symbol,
         company_name: stock.name,
-        price: stock.price.toFixed(2),
-        change: stock.change.toFixed(2),
+        price: parseInt(stock.price),
+        change: parseInt(stock.change),
       };
     });
 
